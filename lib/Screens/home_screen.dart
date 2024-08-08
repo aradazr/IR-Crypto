@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:arz_digital/Screens/coin_list_screen.dart';
 import 'package:arz_digital/data/model.dart';
 import 'package:dio/dio.dart';
@@ -33,19 +35,6 @@ class HomeScreen extends StatefulWidget {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
@@ -55,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.sizeOf(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -63,6 +53,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'assets/images/text.png',
+            ),
+            SizedBox(
+             height: size.height/15,
+            ),
             SpinKitWave(
               color: Colors.white,
               size: 30.0,
@@ -88,6 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
     //     .toList();
 
     Navigator.push(
+      // ignore: use_build_context_synchronously
       context,
       MaterialPageRoute(
         builder: (context) => CoinListScreen(

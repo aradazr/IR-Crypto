@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:arz_digital/constans/my_colors.dart';
 import 'package:arz_digital/data/model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -9,10 +7,10 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CoinListScreen extends StatefulWidget {
-  CoinListScreen({
-    super.key,
+  CoinListScreen({Key? key, 
+    
     this.cryptoList,
-  });
+  }) : super(key: key);
 
   List<Crypto>? cryptoList;
   // List<Crypto>? cryptoList2;
@@ -41,9 +39,9 @@ class _CoinListScreenState extends State<CoinListScreen> {
                   });
                 }),
             bottom: PreferredSize(
-                preferredSize: Size.fromHeight(7),
+                preferredSize: const Size.fromHeight(7),
                 child:
-                    Container(color: Color.fromARGB(0, 0, 0, 0), height: 1.0)),
+                    Container(color: const Color.fromARGB(0, 0, 0, 0), height: 1.0)),
             actions: [
               IconButton(
                   onPressed: () {
@@ -86,13 +84,13 @@ class _CoinListScreenState extends State<CoinListScreen> {
                   child: SizedBox(
                     width: size.width / 1.05,
                     child: Padding(
-                      padding:  EdgeInsets.only(top: 8),
+                      padding:  const EdgeInsets.only(top: 8),
                       child: TextField(
                         //! ولیو را به فانکشنی که ساختیم پاس میدم
                         onChanged: (value) {
                           _filteredList(value);
                         },
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -109,7 +107,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
                           filled: true,
                           hintText: 'نام رمز ارز را وارد کنید',
                           hintStyle:
-                              TextStyle(color: Colors.white, fontFamily: 'mh'),
+                              const TextStyle(color: Colors.white, fontFamily: 'mh'),
                         ),
                       ),
                     ),
@@ -222,12 +220,12 @@ class _CoinListScreenState extends State<CoinListScreen> {
 //!-----------------------------------------------------------------------------------------------------------------------------------------------
   Widget _getIconChangePercent(double percentChange) {
     return percentChange <= 0
-        ? Icon(
+        ? const Icon(
             Icons.trending_down,
             size: 24,
             color: Colors.red,
           )
-        : Icon(
+        : const Icon(
             Icons.trending_up,
             size: 24,
             color: Colors.green,
